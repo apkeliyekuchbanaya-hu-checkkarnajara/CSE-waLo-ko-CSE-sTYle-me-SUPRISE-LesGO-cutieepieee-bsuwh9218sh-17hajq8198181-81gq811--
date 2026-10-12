@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="2560" viewBox="0 0 1440 2560">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff8f7"/><stop offset=".48" stop-color="#f9e5ed"/><stop offset="1" stop-color="#e9c5d5"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#fff" stop-opacity=".92"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+ <linearGradient id="petal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff8fc"/><stop offset=".52" stop-color="#efb8cf"/><stop offset="1" stop-color="#d98aaa"/></linearGradient>
+ <linearGradient id="petal2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0f7"/><stop offset="1" stop-color="#c8799c"/></linearGradient>
+ <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c8c5a9"/><stop offset="1" stop-color="#8c9b82"/></linearGradient>
+ <filter id="blur"><feGaussianBlur stdDeviation="32"/></filter>
+ <g id="rose">
+  <path d="M0 16 C-16 0 -37 1 -48 -20 C-25 -25 -10 -10 0 16Z" fill="url(#leaf)" opacity=".75"/>
+  <path d="M0 16 C17 -3 38 -4 48 -22 C25 -28 7 -11 0 16Z" fill="url(#leaf)" opacity=".7"/>
+  <ellipse rx="54" ry="51" fill="url(#petal)"/>
+  <path d="M-43 -5 C-47 -39 -11 -53 8 -35 C25 -51 49 -23 36 -2 C56 16 28 47 5 33 C-13 52 -44 30 -33 11 C-49 7 -51 -5 -43 -5Z" fill="url(#petal2)"/>
+  <path d="M-22 -3 C-25 -23 -3 -33 9 -17 C27 -22 31 -1 16 9 C21 25 0 31 -8 17 C-25 18 -32 1 -22 -3Z" fill="#d889aa" opacity=".8"/>
+  <path d="M-9 -4 C-7 -13 6 -14 10 -5 C18 0 10 12 2 8 C-7 12 -15 1 -9 -4Z" fill="#a9577b" opacity=".72"/>
+  <circle cx="-24" cy="-24" r="12" fill="#fff" opacity=".34"/>
+ </g>
+ <g id="sprig" fill="none" stroke="#98a58d" stroke-width="3" stroke-linecap="round">
+  <path d="M0 0 C25 -36 40 -73 46 -111"/><path d="M16 -25 C-8 -52 -28 -50 -35 -63 C-8 -69 8 -52 16 -25Z" fill="url(#leaf)" stroke="none"/><path d="M31 -58 C54 -84 75 -78 82 -93 C55 -102 38 -81 31 -58Z" fill="url(#leaf)" stroke="none"/><path d="M39 -84 C20 -106 23 -124 10 -135 C-3 -111 17 -94 39 -84Z" fill="url(#leaf)" stroke="none"/>
+ </g>
+</defs>
+<rect width="1440" height="2560" fill="url(#bg)"/>
+<ellipse cx="720" cy="1180" rx="610" ry="760" fill="url(#glow)" opacity=".82"/>
+<g opacity=".22" filter="url(#blur)"><circle cx="140" cy="360" r="130" fill="#d88baa"/><circle cx="1290" cy="690" r="170" fill="#e8a8c3"/><circle cx="190" cy="2060" r="180" fill="#d6bfd9"/><circle cx="1260" cy="2210" r="190" fill="#d991b0"/></g>
+<!-- airy botanical frame, intentionally leaving the middle clear for the lock card -->
+<g opacity=".88">
+ <g transform="translate(55 120) rotate(-24) scale(1.32)"><use href="#sprig"/><use href="#rose" transform="translate(50 -120) scale(.72)"/></g>
+ <g transform="translate(1390 250) rotate(25) scale(1.08)"><use href="#sprig"/><use href="#rose" transform="translate(-8 -115) scale(.68)"/></g>
+ <g transform="translate(65 2290) rotate(-18) scale(1.55)"><use href="#sprig"/><use href="#rose" transform="translate(48 -118) scale(.82)"/></g>
+ <g transform="translate(1390 2370) rotate(24) scale(1.5)"><use href="#sprig"/><use href="#rose" transform="translate(-6 -120) scale(.8)"/></g>
+ <g transform="translate(220 680) rotate(-42) scale(.54)"><use href="#rose"/></g>
+ <g transform="translate(1260 1630) rotate(35) scale(.62)"><use href="#rose"/></g>
+ <g transform="translate(125 1500) rotate(-12) scale(.42)"><use href="#rose"/></g>
+ <g transform="translate(1320 990) rotate(12) scale(.46)"><use href="#rose"/></g>
+</g>
+<g fill="#fff" opacity=".7">
+ <circle cx="275" cy="340" r="5"/><circle cx="1160" cy="400" r="4"/><circle cx="180" cy="1040" r="5"/><circle cx="1270" cy="1260" r="4"/><circle cx="320" cy="1870" r="4"/><circle cx="1130" cy="2030" r="5"/><circle cx="700" cy="360" r="3"/><circle cx="820" cy="2200" r="4"/>
+</g>
+<g fill="#d99ab5" opacity=".55"><path d="M350 510c18-28 38-2 17 19-7 7-14 11-17 15-4-7-22-21-17-32 3-9 12-9 17-2Z"/><path d="M1080 810c15-24 32-1 14 16-6 6-12 9-14 13-4-6-18-18-14-27 3-8 10-8 14-2Z"/><path d="M300 1700c14-22 29-1 13 15-5 5-11 8-13 11-3-5-17-16-13-25 2-7 9-7 13-1Z"/><path d="M1110 1870c17-25 34-1 15 17-6 6-12 10-15 13-4-6-19-19-15-29 3-8 11-8 15-1Z"/></g>
+</svg>
