@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#f7d8e6" />
+  <meta name="description" content="A cinematic interactive birthday surprise for Cutieeepieee." />
+  <title>For Cutieeepieee ♡</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="ambient"></div>
+  <div id="transition"></div>
+  <div id="toast"></div>
+  <div id="heartPartyBurst" class="heart-party-burst" aria-hidden="true"></div>
+
+  <div class="top-controls">
+    <button id="musicToggle" class="icon-btn" aria-label="Toggle music">♫</button>
+    <button id="sfxToggle" class="icon-btn" aria-label="Toggle sound effects">✦</button>
+  </div>
+
+  <main id="app">
+    <!-- 01 Permission -->
+    <section id="permission" class="scene active front-premium-scene">
+      <div class="front-garden-backdrop" aria-hidden="true">
+        <span class="garden-moon"></span>
+        <span class="garden-bokeh bokeh-one"></span><span class="garden-bokeh bokeh-two"></span><span class="garden-bokeh bokeh-three"></span><span class="garden-bokeh bokeh-four"></span>
+        <span class="garden-petal petal-one">✿</span><span class="garden-petal petal-two">❀</span><span class="garden-petal petal-three">✿</span><span class="garden-petal petal-four">❀</span>
+        <span class="garden-flower flower-left">✿</span><span class="garden-flower flower-right">❀</span>
+      </div>
+      <div class="cinematic-glow"></div>
+      <div class="glass-card permission-card front-premium-card">
+        <div class="front-card-ornament" aria-hidden="true"><span></span><i>♡</i><span></span></div>
+        <h1 id="permissionTitle">Oyeeee!</h1>
+        <div class="front-title-divider" aria-hidden="true"><span></span><b>✦</b><span></span></div>
+        <p class="hero-line">I have suprise for you,</p>
+        <p class="hero-line">Do you want to see ?</p>
+
+        <div id="permissionReaction" class="reaction-slot">
+          <img src="assets/stickers/pink-bow-cat.jpg" alt="pink bow cat sticker">
+        </div>
+
+        <div class="choice-row" id="choiceRow">
+          <button class="btn primary" id="yesBtn">Yes ♡</button>
+          <button class="btn ghost" id="noBtn">No 🙈</button>
+        </div>
+        <div id="permissionResponse" class="response-box hidden"></div>
+      </div>
+    </section>
+
+    <!-- 02 Catch hearts -->
+    <section id="catch" class="scene catch-intro-mode">
+      <div id="catchIntro" class="catch-intro" aria-label="Catch My Heart introduction">
+        <div class="catch-intro-sparkles" aria-hidden="true">✦　♡　✧　♡　✦</div>
+        <div class="catch-intro-heart" aria-hidden="true">💗</div>
+        <p class="catch-intro-kicker">A LITTLE LOVE CHALLENGE</p>
+        <h2>Catch My Heart 💗</h2>
+        <p class="catch-intro-copy">A little game, just for my favourite girl.</p>
+        <div class="catch-intro-details"><span>♡ Catch 10 hearts</span><span>♡ 3 little lives</span></div>
+        <button id="catchIntroStart" class="btn primary">Let's Play</button>
+      </div>
+      <div class="scene-header">
+        <span class="step">01 / 03</span>
+        <h2>Catch My Heart <span aria-hidden="true">💗</span></h2>
+        <p>Catch 5 falling hearts before your little hearts run out.</p>
+      </div>
+      <div class="game-hud">
+        <span class="hud-stat"><small>HEARTS</small><b id="heartScore">0/10</b></span>
+        <span class="hud-stat"><small>LIVES</small><b id="heartLives">♥ ♥ ♥</b></span>
+        <span class="hud-stat"><small>COMBO</small><b id="heartCombo">x1</b></span>
+      </div>
+      <div id="heartGame" class="game-board hearts-board">
+        <div class="sparkle-field"></div>
+        <div id="catchFeedback" class="catch-feedback" aria-live="polite"></div>
+        <div id="catcher">♡</div>
+      </div>
+      <div id="heartComplete" class="heart-complete-overlay hidden" aria-live="polite">
+        <div class="heart-complete-card">
+          <div class="heart-burst" aria-hidden="true">💖 ✨ 💗 ✨ 💖</div>
+          <div class="heart-complete-line">You caught all my heart 💖</div>
+          <div class="heart-burst small" aria-hidden="true">♡ 💕 ♡</div>
+          <button id="heartContinue" class="btn primary game-continue">Continue</button>
+        </div>
+      </div>
+      <p class="game-tip">Drag the little basket left/right ✨</p>
+      <button id="startHeartGame" class="btn primary">Let’s Play ♡</button>
+    </section>
+
+    <!-- 03 Memory -->
+    <section id="memory" class="scene memory-intro-mode">
+      <div id="memoryIntro" class="memory-intro">
+        <span class="memory-intro-kicker">A LITTLE MOMENT, JUST FOR YOU</span>
+        <h2>A Little Memory Game <span aria-hidden="true">🌸</span></h2>
+        <p>Let's see how quickly you can find every matching pair.</p>
+        <div class="memory-preview" aria-hidden="true">
+          <span class="preview-card preview-card-one"><i>🌷</i></span>
+          <span class="preview-card preview-card-two"><i>💗</i></span>
+          <span class="preview-card preview-card-three"><i>🧸</i></span>
+          <span class="preview-card preview-card-four"><i>🌙</i></span>
+        </div>
+        <button id="startMemory" class="btn primary memory-start">Start Playing <span aria-hidden="true">♡</span></button>
+      </div>
+      <div class="scene-header">
+        <span class="step">02 / 03</span>
+        <h2>A Little Memory Game <span aria-hidden="true">🌷</span></h2>
+        <p>Turn over two cards at a time and find all four matching pairs.</p>
+      </div>
+      <div class="memory-meta"><span class="memory-stat"><small>PAIRS FOUND</small><b id="pairsFound">0/4</b></span><span class="memory-stat"><small>MOVES</small><b id="memoryMoves">0</b></span></div>
+      <div id="memoryGrid" class="memory-grid"></div>
+      <div id="memoryComplete" class="memory-complete-overlay hidden" aria-live="polite">
+        <div class="memory-complete-card">
+          <div class="memory-burst" aria-hidden="true">✨ 💗 ✨ 🧸 ✨</div>
+          <div class="memory-complete-line">You found them all, just like you found a special place in my heart 💗</div>
+          <div class="memory-burst small" aria-hidden="true">♡ ✨ ♡</div>
+          <button id="memoryContinue" class="btn primary game-continue">Continue to Surprise →</button>
+        </div>
+      </div>
+      <button id="restartMemory" class="btn ghost small">Shuffle Cards ↻</button>
+    </section>
+
+    <!-- 04 Balloons -->
+    <section id="balloons" class="scene balloon-intro-mode">
+      <div id="balloonIntro" class="balloon-intro">
+        <span class="step">03 / 03</span>
+        <div class="balloon-intro-ornament" aria-hidden="true">✦ ♡ ✦</div>
+        <h2>Pop a Little Surprise <span aria-hidden="true">🎈</span></h2>
+        <p>Pop all five balloons and discover a little message.</p>
+        <div class="balloon-preview" aria-hidden="true">
+          <span class="preview-balloon preview-one"></span><span class="preview-balloon preview-two"></span><span class="preview-balloon preview-three"></span><span class="preview-balloon preview-four"></span><span class="preview-balloon preview-five"></span>
+        </div>
+        <p class="balloon-hint">Tap a balloon to reveal your surprise.</p>
+        <button id="startBalloons" class="btn primary">Start Playing ♡</button>
+      </div>
+      <div class="scene-header">
+        <span class="step">03 / 03</span>
+        <h2>Pop a Little Surprise <span aria-hidden="true">🎈</span></h2>
+        <p>Five little balloons are hiding a message made just for you.</p>
+      </div>
+      <div id="balloonArea" class="balloon-area"><div id="balloonWords" class="balloon-words" aria-live="polite"></div></div>
+      <div id="balloonComplete" class="complete-message balloon-final-message hidden" aria-live="polite">
+        <div class="balloon-final-sparkles" aria-hidden="true">✦ ✨ ✦</div>
+        <h3>And I really mean it 🤞🏻</h3>
+        <button id="toLock" class="btn primary">Continue</button>
+      </div>
+    </section>
+
+    <!-- 05 Lock -->
+    <section id="lock" class="scene">
+      <div class="glass-card lock-card">
+        <div class="lock-floral-border" aria-hidden="true">
+          <span class="lf lf-tl">🌸</span><span class="lf lf-tm">🌷</span><span class="lf lf-tr">🌸</span>
+          <span class="lf lf-ml">🌷</span><span class="lf lf-mr">🌷</span>
+          <span class="lf lf-bl">🌸</span><span class="lf lf-bm">🌷</span><span class="lf lf-br">🌸</span>
+        </div>
+        <div class="lock-icon" id="lockIcon">🔒</div>
+        <div id="lockBreakBurst" class="lock-break-burst" aria-hidden="true"></div>
+        <h2>For You, My Love</h2>
+        <p class="lock-subtitle">Some surprises are meant only for you.</p>
+        <p class="lock-hint">Hint : Nahi Btaunga</p>
+        <div id="pinDots" class="pin-dots"><i></i><i></i><i></i><i></i></div>
+        <div id="keypad" class="keypad"></div>
+        <p id="lockMessage" class="lock-message"></p>
+        <div id="wrongPinPopup" class="wrong-pin-popup hidden" role="status" aria-live="polite"><img src="assets/stickers/use-it-meme.jpg" alt=""></div>
+      </div>
+    </section>
+
+    <!-- 06 Cake — Hero Moment -->
+    <section id="cake" class="scene cake-hero-scene">
+      <div class="cake-night-sky" aria-hidden="true">
+        <span class="cake-star s1">✦</span><span class="cake-star s2">✧</span><span class="cake-star s3">·</span><span class="cake-star s4">✦</span>
+        <span class="fairy-light fl1"></span><span class="fairy-light fl2"></span><span class="fairy-light fl3"></span><span class="fairy-light fl4"></span><span class="fairy-light fl5"></span><span class="fairy-light fl6"></span>
+      </div>
+      <div class="cake-hero-content">
+        <div class="cake-hero-copy" id="cakeHeroCopy">
+          <span class="step">A little birthday magic</span>
+          <h2 id="cakeWishTitle">Make a Wish…</h2>
+          <p id="cakeWishSub">But first… blow the candle.</p>
+        </div>
+        <div class="cake-stage cake-hero-stage">
+          <div class="cake-table-glow" aria-hidden="true"></div>
+          <div class="cake-shadow" aria-hidden="true"></div>
+          <div class="cake-stand">
+            <div class="cake-stand-top"></div>
+            <div class="cake-stand-stem"></div>
+            <div class="cake-stand-foot"></div>
+          </div>
+          <div class="cake cake-image-composition">
+            <img class="cake-art" src="assets/cake-romantic-pink.svg" alt="Elegant pastel pink birthday cake with ribbon and heart decorations" />
+            <div class="candle candle-main" id="candle">
+              <div class="flame" id="flame"><span></span></div>
+              <div class="wax-drip"></div>
+            </div>
+            <div class="candle mini-candle mc1"><div class="flame mini-flame"></div></div>
+            <div class="candle mini-candle mc2"><div class="flame mini-flame"></div></div>
+          </div>
+          <div class="cake-smoke" id="cakeSmoke" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="cake-petals" id="cakePetals" aria-hidden="true"></div>
+        </div>
+        <div class="cake-controls">
+          <div id="cakeInstruction" class="cake-instruction">Tap “Blow” or use the microphone to make your wish ♡</div>
+          <div class="cake-actions">
+            <button id="blowBtn" class="btn primary">🌬 Blow the candle</button>
+            <button id="micBtn" class="btn ghost small">Use microphone</button>
+            <button id="cakeCelebrationContinue" class="btn primary cake-continue-inline" type="button" aria-label="Continue" hidden>Continue</button>
+          </div>
+        </div>
+        <div id="cakeBirthdayReveal" class="cake-birthday-reveal" aria-live="polite">
+          <div class="reveal-sparkles">✦ ✧ ✦</div>
+          <h3>Happy Birthday, Cutieeepieee! 🎂💗</h3>
+          <div class="reveal-hearts">♡　✦　♡</div>
+        </div>
+      </div>
+      <div id="confetti" class="confetti"></div>
+
+      <!-- Same-page cake-cutting celebration. It stays here until Continue is pressed. -->
+      <div id="cakeCelebration" class="cake-celebration" aria-live="polite" aria-hidden="true">
+        <div class="party-popper popper-left" aria-hidden="true">
+          <span class="popper-burst">✦</span>
+        </div>
+        <div class="party-popper popper-right" aria-hidden="true">
+          <span class="popper-burst">✦</span>
+        </div>
+        <div id="celebrationRain" class="celebration-rain" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- 07 Hug -->
+    <section id="hug" class="scene hug-scene">
+      <div class="hug-atmosphere" aria-hidden="true">
+        <span class="hug-orb orb-one"></span><span class="hug-orb orb-two"></span>
+        <span class="hug-petal petal-one">❀</span><span class="hug-petal petal-two">✿</span>
+        <span class="hug-heart heart-one">♡</span><span class="hug-heart heart-two">♡</span>
+        <span class="hug-twinkle twinkle-one">✧</span><span class="hug-twinkle twinkle-two">✦</span>
+      </div>
+      <div class="scene-header hug-scene-header">
+        <span class="step">A little gift, just for you</span>
+        <h2>One more thing...</h2>
+      </div>
+      <div class="surprise-wrap hug-gift-stage">
+        <div class="hug-gift-card">
+          <div class="hug-card-topline"><span>MADE WITH LOVE</span><span>♡</span></div>
+          <button id="surpriseBox" class="surprise-box" aria-label="Open your virtual hug surprise">
+            <span class="hug-gift-halo" aria-hidden="true"></span>
+            <span class="hug-gift-bow" aria-hidden="true"><i></i><b></b><em></em></span>
+            <span class="hug-gift-seal" aria-hidden="true">♡</span>
+            <span class="hug-gift-title">Here is suprise for you !</span>
+            <small><span class="hug-tap-dot">✧</span> Tap here <span class="hug-tap-dot">✧</span></small>
+            <span class="hug-gift-footnote">a little warmth, wrapped just for you</span>
+          </button>
+        </div>
+        <div id="hugReveal" class="hug-reveal hidden">
+          <div class="hug-reveal-label"><span>YOUR LITTLE MOMENT OF COMFORT</span><span>♡</span></div>
+          <div class="hug-sparkles" aria-hidden="true">✦　✧　♡　✧　✦</div>
+          <div class="hug-image-wrap">
+            <span class="hug-frame-flower flower-left" aria-hidden="true">✿</span>
+            <img src="assets/photos/virtual-hug.jpg" class="hug-image" alt="A cute couple moment">
+            <span class="hug-frame-flower flower-right" aria-hidden="true">❀</span>
+          </div>
+          <div class="hug-quote">
+            <span class="hug-quote-rule" aria-hidden="true">✧　♡　✧</span>
+            <p>Here Is Virtual Hug For You 🫂</p>
+          </div>
+          <button id="toLetter" class="btn primary hug-letter-btn">Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Letter grand opening: separate presentation only; original letter below stays untouched -->
+    <section id="letterOpening" class="scene letter-opening-scene" aria-label="A personal note">
+      <div class="opening-grain" aria-hidden="true"></div>
+      <div class="opening-orbit orbit-one" aria-hidden="true"></div><div class="opening-orbit orbit-two" aria-hidden="true"></div>
+      <div class="opening-content">
+        <div class="opening-topline"><span>PRIVATE EDITION</span><i></i><span>NO. 0608</span></div>
+        <div class="opening-flower-stamp" aria-hidden="true"><span>✿</span><small>WITH<br>CARE</small></div>
+        <div class="opening-copy"><p class="opening-kicker">A PRIVATE LITTLE MOMENT</p><h2>Something<br><em>made for you.</em></h2><p class="opening-caption">A little moment to keep, just between us.</p></div>
+        <div class="opening-envelope-action"><button id="revealLetterButton" class="opening-envelope-button" type="button" aria-label="Unseal the letter"><span class="cute-envelope" aria-hidden="true"><span class="envelope-paper"></span><span class="envelope-body"></span><span class="envelope-flap"></span><span class="envelope-heart">♡</span><span class="envelope-sparkle sparkle-one">✦</span><span class="envelope-sparkle sparkle-two">✧</span></span></button><p class="opening-envelope-label">UNSEAL THE LETTER</p></div>
+        <div class="opening-bottomline"><span>EST. WITH LOVE</span><span aria-hidden="true">♡</span><span>GO AHEAD</span></div>
+      </div>
+      <div class="opening-petal op-a" aria-hidden="true">✿</div><div class="opening-petal op-b" aria-hidden="true">✧</div><div class="opening-petal op-c" aria-hidden="true">❀</div>
+    </section>
+
+    <!-- 08 Letter -->
+    <section id="letter" class="scene letter-scene">
+      <div class="letter-shell">
+        <div class="letter-top-ornament" aria-hidden="true"><span>✧</span><i></i><span>♡</span><i></i><span>✧</span></div>
+        <div class="letter-flower flower-one" aria-hidden="true">🌷</div>
+        <div class="letter-flower flower-two" aria-hidden="true">🌸</div>
+        <header class="letter-head">
+          <p class="letter-kicker">A little piece of my heart</p>
+          <h2>A Birthday Letter <span>💌</span></h2>
+          <div>Only For You 🫶🏻</div>
+          <p class="letter-intro">Every word here is meant for you, Betu.</p>
+          <div class="letter-divider" aria-hidden="true"><span>✦</span><i></i><span>♡</span><i></i><span>✦</span></div>
+        </header>
+        <div class="letter-progress" aria-hidden="true"><span id="letterProgressFill"></span></div>
+        <div class="letter-page" id="letterPage">
+          <div class="letter-margin-flower" aria-hidden="true">❧</div>
+          <div id="letterLines" class="letter-lines"></div>
+          <div class="letter-page-signoff" aria-hidden="true">written softly, meant sincerely&nbsp; ♡</div>
+        </div>
+        <div class="letter-controls">
+          <button id="prevLetter" class="btn letter-back" type="button" disabled><span aria-hidden="true">←</span> Back</button>
+          <span id="letterPageNo"><span class="page-dot">♡</span> Page 1 / 3</span>
+          <button id="nextLetter" class="btn primary">Continue reading <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+      <div class="letter-floating-petal petal-a" aria-hidden="true">✿</div>
+      <div class="letter-floating-petal petal-b" aria-hidden="true">❀</div>
+      <div class="letter-floating-petal petal-c" aria-hidden="true">✧</div>
+    </section>
+
+    <!-- 09 Photos -->
+    <section id="photos" class="scene">
+      <div class="scene-header photo-header">
+        <span class="step">Little memories 📸</span>
+        <h2>You, in little frames</h2>
+        <p class="photo-subtitle">A few moments I could never scroll past…</p>
+      </div>
+      <div class="photo-botanical botanical-left">✿</div>
+      <div class="photo-botanical botanical-right">❀</div>
+      <div id="photoGrid" class="photo-grid premium-photo-grid"></div>
+      <div class="photo-viewer" id="photoViewer" aria-hidden="true">
+        <button class="photo-viewer-close" id="photoViewerClose" type="button" aria-label="Close">×</button>
+        <div class="photo-viewer-bg" id="photoViewerBg"></div>
+        <div class="photo-viewer-content">
+          <div class="photo-viewer-image-wrap" id="photoViewerImageWrap">
+            <img id="photoViewerImage" alt="Memory">
+          </div>
+          <div class="photo-viewer-caption" id="photoViewerCaption"></div>
+          <div class="photo-viewer-count" id="photoViewerCount"></div>
+        </div>
+        <button class="photo-viewer-nav prev" id="photoPrev" type="button" aria-label="Previous photo">‹</button>
+        <button class="photo-viewer-nav next" id="photoNext" type="button" aria-label="Next photo">›</button>
+      </div>
+      <button id="toEnding" class="btn primary photo-ending-btn">One last page ♡</button>
+    </section>
+
+    <!-- 10 Ending -->
+    <section id="ending" class="scene ending-luxe-scene">
+      <div class="ending-particles" aria-hidden="true"></div>
+      <span class="ending-bloom bloom-left" aria-hidden="true">✿</span>
+      <span class="ending-bloom bloom-right" aria-hidden="true">❀</span>
+      <div class="ending-card ending-luxe-card">
+        <p class="ending-eyebrow">A LITTLE NOTE, JUST FOR YOU</p>
+        <div class="ending-top-rule" aria-hidden="true"><span>✦</span></div>
+        <div class="couple-frame ending-couple-frame">
+          <span class="frame-sparkle sparkle-one" aria-hidden="true">✧</span>
+          <span class="frame-sparkle sparkle-two" aria-hidden="true">✦</span>
+          <img src="assets/photos/ending-couple-sketch.jpg" alt="A soft sketch of a couple hugging">
+        </div>
+        <div class="quote ending-quote">
+          <p>In your smile, I found my peace 🕊️</p>
+          <p>In your love, I found my home 🫶🏻</p>
+        </div>
+        <div class="ending-divider" aria-hidden="true"><span></span><b>♡</b><span></span></div>
+        <p class="ending-note">And if life ever gets a little heavy or hard, I hope you remember this: somewhere in this big world, there is a person who will always be cheering for you, choosing you, wishing you well, supporting you, caring for you, and always being there for you.</p>
+        <p class="ending-signature">Always, with all my heart <span>♡</span></p>
+        <div class="ending-heart" aria-hidden="true">♡</div>
+        <p class="tiny-final">Happy Birthday, Nandaniii ✨</p>
+      </div>
+    </section>
+  </main>
+
+  <audio id="bgm" preload="auto" loop src="assets/audio/since-tum-bgm.mp3"></audio>
+  <script src="app.js"></script>
+</body>
+</html>
